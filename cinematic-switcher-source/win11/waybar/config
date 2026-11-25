@@ -1,0 +1,86 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 48,
+  "modules-center": [
+    "custom/launcher",
+    "custom/explorer",
+    "custom/firefox",
+    "custom/notepad",
+    "custom/spotify",
+    "custom/steam",
+    "custom/discord"
+  ],
+  "modules-right": [
+    "custom/network",
+    "pulseaudio",
+    "tray",
+    "clock",
+    "custom/notification"
+  ],
+  "custom/launcher": {
+    "format": "Start",
+    "exec": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" launcher",
+    "return-type": "json",
+    "exec-on-event": false,
+    "on-click": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" launcher --activate"
+  },
+  "custom/explorer": {
+    "format": "Files",
+    "exec": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" explorer",
+    "return-type": "json",
+    "exec-on-event": false,
+    "on-click": "nautilus"
+  },
+  "custom/firefox": {
+    "format": "Web",
+    "exec": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" firefox",
+    "return-type": "json",
+    "exec-on-event": false,
+    "on-click": "epiphany"
+  },
+  "custom/notepad": {
+    "format": "Editor",
+    "exec": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" notepad",
+    "return-type": "json",
+    "exec-on-event": false,
+    "on-click": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" notepad --activate"
+  },
+  "custom/spotify": {
+    "format": "Music",
+    "exec": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" spotify",
+    "return-type": "json",
+    "exec-on-event": false,
+    "on-click": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" spotify --activate"
+  },
+  "custom/steam": {
+    "format": "Steam",
+    "exec": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" steam",
+    "return-type": "json",
+    "exec-on-event": false,
+    "on-click": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" steam --activate"
+  },
+  "custom/discord": {
+    "format": "Chat",
+    "exec": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" discord",
+    "return-type": "json",
+    "exec-on-event": false,
+    "on-click": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" discord --activate"
+  },
+  "custom/network": {
+    "format": "Wi-Fi",
+    "return-type": "json",
+    "exec": "exec python3 \"$HOME/.config/waybar/wifi.py\" status",
+    "restart-interval": 4,
+    "on-click": "exec python3 \"$HOME/.config/waybar/app-indicator.py\" network --activate"
+  },
+  "custom/notification": {
+    "format": "Alerts",
+    "return-type": "json",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw"
+  },
+  "clock": {
+    "format": "{:%H:%M}"
+  }
+}
